@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site-config";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -23,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={`${poppins.variable}`}>{children}</body>
       </ThemeProvider>
     </html>
   );
